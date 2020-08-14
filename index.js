@@ -41,8 +41,38 @@ class Airplane {
 */
 
 class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
 
+  eat(someFood) {
+    if (this.stomach.length < 10) {
+      this.stomach.push(someFood);
+    } 
+    console.log(this.stomach.length);
+    this.stomach.forEach(item => {
+      //console.log(item)
+    })
+  }
+
+  poop() {
+    this.stomach = [];
+  }
+
+  toString() {
+    return `${this.name}, ${this.age}`;
+  }
 }
+
+// let p1 = new Person("Joseph", 24);
+// console.log(p1.toString());
+// p1.eat('Pizza');
+// p1.eat('Tuna');
+// p1.poop();
+// p1.eat('Creme Brulee')
+// p1.eat('Burrito')
 
 /*
   TASK 2
@@ -58,9 +88,39 @@ class Person {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
+
 class Car {
+  constructor(model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon =milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+    this.gallons = 0;
+  }
+// <---- This is a shortcut //this.tank = this.tank + gallons;
+  fill(gallons){
+    this.tank += gallons;
+    this.gallons = gallons;
+    console.log(`Gallons Available: ${gallons}`)
+  } 
+
+  drive(distance){
+    this.odometer += distance;
+    let gasUsed = distance / this.milesPerGallon;
+    this.tank -= gasUsed;
+    this.gallons = this.gallons - gasUsed;
+    console.log('Available gass is: ' + this.gallons);
+    if(this.gallons < 0) {
+      console.log('I ran out of fuel at ' + this.odometer + ' miles')
+    }
+  }
 
 }
+
+let c1 = new Car('Tesla', 60);
+c1.fill(20);
+c1.drive(1201);
+
 
 /*
   TASK 3
@@ -74,9 +134,20 @@ class Car {
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
         + {name} and {location} of course come from the instance's own properties.
 */
-class Lambdasian {
 
+
+class Lambdasion {
+  constructor(name, age, location){
+    this.name = this.name;
+    this.age = this.age;
+    this.location = this.location;
+  }
+  speak(){
+    return `Hello my name is ${this.name}, I am from ${location}.`
+  }
 }
+
+
 
 /*
   TASK 4
@@ -144,13 +215,13 @@ class ProjectManager {
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
 ///////// END OF CHALLENGE /////////
-if (typeof exports !== 'undefined') {
-  module.exports = module.exports || {}
-  if (Airplane) { module.exports.Airplane = Airplane }
-  if (Person) { module.exports.Person = Person }
-  if (Car) { module.exports.Car = Car }
-  if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
-  if (Instructor) { module.exports.Instructor = Instructor }
-  if (Student) { module.exports.Student = Student }
-  if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
-}
+// if (typeof exports !== 'undefined') {
+//   module.exports = module.exports || {}
+//   if (Airplane) { module.exports.Airplane = Airplane }
+//   if (Person) { module.exports.Person = Person }
+//   if (Car) { module.exports.Car = Car }
+//   if (Lambdasian) { module.exports.Lambdasian = Lambdasian }
+//   if (Instructor) { module.exports.Instructor = Instructor }
+//   if (Student) { module.exports.Student = Student }
+//   if (ProjectManager) { module.exports.ProjectManager = ProjectManager }
+// }
