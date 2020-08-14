@@ -92,7 +92,7 @@ class Person {
 class Car {
   constructor(model, milesPerGallon){
     this.model = model;
-    this.milesPerGallon =milesPerGallon;
+    this.milesPerGallon = milesPerGallon;
     this.tank = 0;
     this.odometer = 0;
     this.gallons = 0;
@@ -101,7 +101,7 @@ class Car {
   fill(gallons){
     this.tank += gallons;
     this.gallons = gallons;
-    console.log(`Gallons Available: ${gallons}`)
+    // console.log(`Gallons Available: ${gallons}`)
   } 
 
   drive(distance){
@@ -117,9 +117,9 @@ class Car {
 
 }
 
-let c1 = new Car('Tesla', 60);
-c1.fill(20);
-c1.drive(1201);
+// let c1 = new Car('Tesla', 60);
+// c1.fill(20);
+// c1.drive(1201);
 
 
 /*
@@ -137,15 +137,17 @@ c1.drive(1201);
 
 
 class Lambdasion {
-  constructor(name, age, location){
-    this.name = this.name;
-    this.age = this.age;
-    this.location = this.location;
+  constructor(attr){
+    this.name = attr.name;
+    this.age = attr.age;
+    this.location = attr.location;
   }
   speak(){
     return `Hello my name is ${this.name}, I am from ${location}.`
   }
 }
+
+
 
 
 
